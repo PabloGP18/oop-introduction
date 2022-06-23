@@ -17,20 +17,18 @@ USE TYPE HINTING EVERYWHERE!
 class Beverage
 {
     // The Properties
-    public $color;
-    public $price;
-    public $temperature;
-    public $name;
+    public string $color;
+    public float $price;
+    public string $temperature;
 
 
 // The constructure with incoming parameters in the brackets
 
-    public function __construct(string $color, float $price, string $name)
+    public function __construct(string $color, float $price, string $temperature ="cold")
     {
         $this->color= $color;
         $this->price= $price;
-        $this->temperature= "cold";
-        $this->name= $name;
+        $this->temperature= $temperature;
     }
 
     /**
@@ -39,13 +37,14 @@ class Beverage
 
 
     // The functions
-    public function getInfoBeverage(): void
+    public function getInfoBeverage(): string
     {
-        echo "this $this->name is $this->temperature and $this->color";
+        return "this beverage is $this->temperature and $this->color";
     }
 }
 // For every object you want to create, you just need to instantiate a new object.
 $beverage = new beverage("black", 2,"cola");
 // Now that we created 3 animal objects. we can also start to use them in our code!
-$beverage->getInfoBeverage();
-
+//$beverage->temperature="warm"; To change default string
+//$beverage->getInfoBeverage();
+echo $beverage->getInfoBeverage();
