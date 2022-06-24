@@ -49,7 +49,13 @@ $beverage = new beverage("black", 2);
 
 //echo $beverage->getInfoBeverage();
 
+//TODO: Make class beer that extends from Beverage.
+
+// this is the way how to extend an existing class
 class Beer extends Beverage {
+
+    //TODO: Create the properties name (string) and alcoholPercentage (float).
+
     // The Properties
     public string $name;
     public float $alcoholPercentage;
@@ -59,8 +65,13 @@ class Beer extends Beverage {
      * @param string $name
      * @param float $alcoholPercentage
      */
+
+    //TODO: Foresee a construct that's allows us to use all the properties from beverage and that sets the values for name and alcoholpercentage.
+
+    //you have to put the properties of the parent and the child in the construct function
     public function __construct(string $color, float $price, string $name, float $alcoholPercentage)
     {
+        // how to add the parent properties to the construct
         parent::__construct($color, $price);
         $this->name = $name;
         $this->alcoholPercentage= $alcoholPercentage;
@@ -70,15 +81,25 @@ class Beer extends Beverage {
      * @return float
      */
 
+    //TODO: Make a getAlcoholPercentage function which returns the alocoholPercentage.
     public function getAlcoholPercentage(): float
     {
         return $this->alcoholPercentage;
     }
 
 }
+
+// initiating a new object with all the properties.
 $duvel = new Beer('blond',3.5,"Duvel",8.5);
 
+//calling the object
 echo $duvel ->getInfoBeverage(); echo '<br>';
+
+// TODO: Print the getAlcoholPercentage 2 times on the screen in two different ways, print the color on the screen and the getInfo.
+
+// 2 ways how to call the alcohol percentage
 echo $duvel->getAlcoholPercentage(); echo '<br>';
 echo $duvel->alcoholPercentage; echo '<br>';
+
+
 echo $duvel->color;

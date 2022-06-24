@@ -44,7 +44,10 @@ class Beverage
 }
 // For every object you want to create, you just need to instantiate a new object.
 $beverage = new beverage("black", 2,"cola");
+
 // Now that we created 3 animal objects. we can also start to use them in our code!
+
 //$beverage->temperature="warm"; To change default string
+
 //$beverage->getInfoBeverage();
 echo $beverage->getInfoBeverage();

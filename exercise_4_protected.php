@@ -11,6 +11,7 @@ USE TYPE HINTING EVERYWHERE!
 
 class Beverage
 {
+    // TODO: Make all properties protected.
     // The Properties
     protected string $color;
     protected float $price;
@@ -88,6 +89,7 @@ class Beer extends Beverage {
 
     private function beerInfo(): string
     {
+        // we can all use the properties without calling the get function because we are using protected and not private
         return "Hi i'm $this->name and have an alcohol percentage $this->alcoholPercentage and I have a  .$this->color  color.";
     }
 
@@ -97,6 +99,9 @@ class Beer extends Beverage {
     }
 
 }
+
+// TODO: Make all the other prints work without error without changing the beverage class.
+
 $duvel = new Beer('blond',3.5,"Duvel",8.5);
 
 echo $duvel ->getInfoBeverage(); echo '<br>';
