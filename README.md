@@ -10,7 +10,7 @@
 - Made a function and return a string
 - Instantiated an object and print the info of the function
 
-````js
+````php
 class Beverage
 {
     public string $color;
@@ -45,7 +45,7 @@ echo $beverage->getInfoBeverage();
 - Printed new object information 
 
 
-````js
+````php
 class Beverage
 {
     public string $color;
@@ -104,8 +104,213 @@ echo $duvel->alcoholPercentage; echo '<br>';
 echo $duvel->color;
 ````
 
-### Exercise 3 classes
+### Exercise 3 private
 
+- Made the properties private from exercise 2
+- Getting and setting the property color so i could change this because it's private
+- Created a private method and created another public method to show/print the information of the private one
+
+```php
+class Beverage
+{
+    private string $color;
+    private float $price;
+    private string $temperature;
+    
+    public function __construct(string $color, float $price)
+    {
+        $this->color= $color;
+        $this->price= $price;
+        $this->temperature= "cold";
+    }
+
+    /**
+     * @return string
+     */
+    public function getColor(): string
+    {
+        return $this->color;
+    }
+
+    /**
+     * @param string $color
+     */
+    public function setColor(string $color): void
+    {
+        $this->color = $color;
+    }
+
+    public function getInfoBeverage(): string
+    {
+        return "this beverage is $this->temperature and $this->color";
+    }
+}
+class Beer extends Beverage {
+    
+    private string $name;
+    private float $alcoholPercentage;
+
+
+    /**
+     * @param string $name
+     * @param float $alcoholPercentage
+     */
+    public function __construct(string $color, float $price, string $name, float $alcoholPercentage)
+    {
+        parent::__construct($color, $price);
+        $this->name = $name;
+        $this->alcoholPercentage= $alcoholPercentage;
+    }
+
+    /**
+     * @param float $alcoholPercentage
+     */
+
+    public function setAlcoholPercentage(float $alcoholPercentage): void
+    {
+        $this->alcoholPercentage = $alcoholPercentage;
+    }
+
+    /**
+     * @return float
+     */
+    
+    public function getAlcoholPercentage(): float
+    {
+        return $this->alcoholPercentage;
+    }
+
+
+    private function beerInfo(): string
+    {
+        return "Hi i'm $this->name and have an alcohol percentage $this->alcoholPercentage and I have a " .$this->getColor(). " color.";
+    }
+
+    public function printBeer(): string
+    {
+        return $this->beerInfo();
+    }
+
+}
+
+$duvel = new Beer('blond',3.5,"Duvel",8.5);
+
+echo $duvel ->getInfoBeverage(); echo '<br>';
+
+echo $duvel->getAlcoholPercentage(); echo '<br>';
+
+$duvel->setAlcoholPercentage(8);
+echo $duvel->getAlcoholPercentage(); echo '<br>';
+
+
+$duvel->setColor('light');
+echo $duvel->getColor();echo'<br>';
+
+echo $duvel->printBeer();
+```
+
+### Exercise 4 properties
+
+- made all the properties protected
+- now i can call the properties in the function of the child without using the getter in the function
+
+```php
+class Beverage
+{
+
+    protected string $color;
+    protected float $price;
+    protected string $temperature;
+
+    public function __construct(string $color, float $price)
+    {
+        $this->color= $color;
+        $this->price= $price;
+        $this->temperature= "cold";
+    }
+
+    /**
+     * @return string
+     */
+    public function getColor(): string
+    {
+        return $this->color;
+    }
+
+    /**
+     * @param string $color
+     */
+    public function setColor(string $color): void
+    {
+        $this->color = $color;
+    }
+
+    public function getInfoBeverage(): string
+    {
+        return "this beverage is $this->temperature and $this->color";
+    }
+}
+class Beer extends Beverage {
+
+    protected string $name;
+    protected float $alcoholPercentage;
+
+
+    /**
+     * @param string $name
+     * @param float $alcoholPercentage
+     */
+    public function __construct(string $color, float $price, string $name, float $alcoholPercentage)
+    {
+        parent::__construct($color, $price);
+        $this->name = $name;
+        $this->alcoholPercentage= $alcoholPercentage;
+    }
+
+    /**
+     * @param float $alcoholPercentage
+     */
+    public function setAlcoholPercentage(float $alcoholPercentage): void
+    {
+        $this->alcoholPercentage = $alcoholPercentage;
+    }
+
+    /**
+     * @return float
+     */
+
+    public function getAlcoholPercentage(): float
+    {
+        return $this->alcoholPercentage;
+    }
+
+    private function beerInfo(): string
+    {
+        return "Hi i'm $this->name and have an alcohol percentage $this->alcoholPercentage and I have a  .$this->color  color.";
+    }
+
+    public function printBeer(): string
+    {
+        return $this->beerInfo();
+    }
+
+}
+
+
+$duvel = new Beer('blond',3.5,"Duvel",8.5);
+
+echo $duvel ->getInfoBeverage(); echo '<br>';
+
+echo $duvel->getAlcoholPercentage(); echo '<br>';
+
+$duvel->setAlcoholPercentage(8);
+echo $duvel->getAlcoholPercentage(); echo '<br>';
+
+$duvel->setColor('light');
+echo $duvel->getColor();echo'<br>';
+
+echo $duvel->printBeer();
+```
 
 ## The objective
 
@@ -127,7 +332,7 @@ echo $duvel->color;
 ## An example
 
 Let's say we have a list of animals from the zoo:
-```js
+```php
 const listOfAnimals = [
     {
         animalType : 'monkey',
