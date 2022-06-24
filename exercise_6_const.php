@@ -93,7 +93,7 @@ class Beer extends Beverage {
 $beverage = new beverage("black", 2);
 $duvel = new Beer('blond',3.5,"Duvel",8.5);
 
-//creating constant method and calling the constant
+//creating constant function and calling the constant
 define("barname","Het vervolg");
 echo barname; echo "<br>";
 
