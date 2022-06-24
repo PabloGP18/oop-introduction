@@ -1,22 +1,124 @@
 # OOP introduction
 
-## The introduction
+### The exercises:
 
-OOP - `Object Orientated Programming` - focuses on the objects that developers want to manipulate rather than the logic required to manipulate them.
-This approach to programming is well-suited for programs that are large, complex and actively updated or maintained.
+### Exercise 1 classes
+
+- Created a class
+- Create properties
+- Made a default value for a property
+- Made a function and return a string
+- Instantiated an object and print the info of the function
+
+````js
+class Beverage
+{
+    public string $color;
+    public float $price;
+    public string $temperature;
+
+
+
+    public function __construct(string $color, float $price, string $temperature ="cold")
+    {
+        $this->color= $color;
+        $this->price= $price;
+        $this->temperature= $temperature;
+    }
+
+    public function getInfoBeverage(): string
+    {
+        return "this beverage is $this->temperature and $this->color";
+    }
+}
+$beverage = new beverage("black", 2,"cola");
+
+echo $beverage->getInfoBeverage();
+
+````
+
+### Exercise 2 extending
+
+- Made a class(child) that extends from the parent
+- Made properties in the child class
+- Created a construct in the child class that includes the parent properties and sets the child properties
+- Printed new object information 
+
+
+````js
+class Beverage
+{
+    public string $color;
+    public float $price;
+    public string $temperature;
+
+    
+    public function __construct(string $color, float $price)
+    {
+        $this->color= $color;
+        $this->price= $price;
+        $this->temperature= "cold";
+    }
+    
+    public function getInfoBeverage(): string
+    {
+        return "this beverage is $this->temperature and $this->color";
+    }
+}
+$beverage = new beverage("black", 2);
+
+class Beer extends Beverage {
+    
+    public string $name;
+    public float $alcoholPercentage;
+
+
+    /**
+     * @param string $name
+     * @param float $alcoholPercentage
+     */
+    
+    public function __construct(string $color, float $price, string $name, float $alcoholPercentage)
+    {
+        parent::__construct($color, $price);
+        $this->name = $name;
+        $this->alcoholPercentage= $alcoholPercentage;
+    }
+
+    /**
+     * @return float
+     */
+
+    public function getAlcoholPercentage(): float
+    {
+        return $this->alcoholPercentage;
+    }
+
+}
+
+$duvel = new Beer('blond',3.5,"Duvel",8.5);
+
+echo $duvel ->getInfoBeverage(); echo '<br>';
+echo $duvel->getAlcoholPercentage(); echo '<br>';
+echo $duvel->alcoholPercentage; echo '<br>';
+echo $duvel->color;
+````
+
+### Exercise 3 classes
+
 
 ## The objective
 
 > Lost for a second? Have a look at [this example](#an-example)
 
 ### 🌱 Must haves - the basics
-- [ ] [Exercise 1](exercise_1_classes.php)
-- [ ] [Exercise 2](exercise_2_extending.php)
+- [x] [Exercise 1](exercise_1_classes.php)
+- [x] [Exercise 2](exercise_2_extending.php)
 
 ### 🌱 Must haves - digging deeper
-- [ ] [Exercise 3](exercise_3_private.php)
-- [ ] [Exercise 4](exercise_4_protected.php)
-- [ ] [Exercise 5](exercise_5_public.php)
+- [x] [Exercise 3](exercise_3_private.php)
+- [x] [Exercise 4](exercise_4_protected.php)
+- [x] [Exercise 5](exercise_5_public.php)
 
 ### 🌼 Nice to haves
 - [ ] [Exercise 6](exercise_6_const.php)
