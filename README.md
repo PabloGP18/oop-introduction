@@ -5,7 +5,7 @@
 ### Exercise 1 classes
 
 - Created a class
-- Create properties
+- Created properties
 - Made a default value for a property
 - Made a function and return a string
 - Instantiated an object and print the info of the function
