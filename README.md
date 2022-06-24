@@ -311,6 +311,51 @@ echo $duvel->getColor();echo'<br>';
 
 echo $duvel->printBeer();
 ```
+### Exercise 5 public
+
+- Changed the properties to private again
+- changed the price of the property not using a getter and a setter
+
+```php
+class Beverage
+{
+    // The Properties
+    private string $color;
+    private float $price;
+    private string $temperature;
+
+    public function __construct(string $color, float $price, string $temperature ="cold")
+    {
+        $this->color= $color;
+        $this->price= $price;
+        $this->temperature= $temperature;
+    }
+
+    /**
+     * @param mixed $temperature
+     */
+
+    public function getInfoBeverage(): string
+    {
+        return "this beverage is $this->temperature and $this->color";
+    }
+
+    function printNewPrice (float $newPrice)
+    {
+        if($newPrice <= 0){
+            return "no free drinks for you!";
+        }
+        
+        $this->price=$newPrice;
+        return "this beverage is $this->temperature and $this->color and $this->price euro";
+    }
+}
+$beverage = new beverage("black", 2);
+
+echo $beverage->getInfoBeverage(); echo "<br>";
+
+echo $beverage->printNewPrice(3.5);
+```
 
 ## The objective
 
